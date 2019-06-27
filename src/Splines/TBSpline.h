@@ -14,7 +14,7 @@
 $RCSfile: TBSpline.h,v $
 $Revision: 1.1 $
 $Author: claude $
-$Date: 2010-12-09 19:35:01 $
+$Date: 2010/12/09 19:35:01 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 /* ----------------------------- MNI Header -----------------------------------
@@ -28,7 +28,7 @@ $State: Exp $
 @CALLS      : 
 @CREATED    : April 21, 1996 (John G. Sled)
 @MODIFIED   : $Log: TBSpline.h,v $
-@MODIFIED   : Revision 1.1  2010-12-09 19:35:01  claude
+@MODIFIED   : Revision 1.1  2010/12/09 19:35:01  claude
 @MODIFIED   : moved splines from EBTKS to N3; convergence of field outside mask
 @MODIFIED   :
 @MODIFIED   : Revision 1.5  2010-05-18 23:01:21  rotor

@@ -9,7 +9,7 @@
 @CALLS      : 
 @CREATED    : Feb. 28, 1995 (Vasco KOLLOKIAN)
 @MODIFIED   : $Log: extracttag.c,v $
-@MODIFIED   : Revision 1.2  2005-03-08 15:35:26  bert
+@MODIFIED   : Revision 1.2  2005/03/08 15:35:26  bert
 @MODIFIED   : Two minor updates
 @MODIFIED   :
 @MODIFIED   : Revision 1.1  2003/04/16 14:27:22  bert

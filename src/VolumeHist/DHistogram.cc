@@ -14,7 +14,7 @@
 $RCSfile: DHistogram.cc,v $
 $Revision: 1.1 $
 $Author: bert $
-$Date: 2003-04-16 14:31:39 $
+$Date: 2003/04/16 14:31:39 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 #include <config.h>

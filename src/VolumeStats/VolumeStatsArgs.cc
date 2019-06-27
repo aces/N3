@@ -14,7 +14,7 @@
 $RCSfile: VolumeStatsArgs.cc,v $
 $Revision: 1.2 $
 $Author: stever $
-$Date: 2003-11-17 04:30:56 $
+$Date: 2003/11/17 04:30:56 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 #include "VolumeStatsArgs.h"

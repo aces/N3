@@ -14,7 +14,7 @@
 $RCSfile: VolumeStatsArgs.h,v $
 $Revision: 1.1 $
 $Author: bert $
-$Date: 2003-04-16 14:32:14 $
+$Date: 2003/04/16 14:32:14 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 #ifndef AVERAGE_VOLUMES_ARGS_H

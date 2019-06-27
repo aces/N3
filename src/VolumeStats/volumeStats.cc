@@ -14,7 +14,7 @@
 $RCSfile: volumeStats.cc,v $
 $Revision: 1.3 $
 $Author: bert $
-$Date: 2004-04-06 19:06:46 $
+$Date: 2004/04/06 19:06:46 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 /* ----------------------------- MNI Header -----------------------------------
@@ -28,7 +28,7 @@ $State: Exp $
 @CALLS      : 
 @CREATED    : April 15, 1995 (Alex Zijdenbos)
 @MODIFIED   : $Log: volumeStats.cc,v $
-@MODIFIED   : Revision 1.3  2004-04-06 19:06:46  bert
+@MODIFIED   : Revision 1.3  2004/04/06 19:06:46  bert
 @MODIFIED   : Use either float.h or values.h for DBL_MAX, according to config.h
 @MODIFIED   :
 @MODIFIED   : Revision 1.2  2003/11/17 04:30:56  stever

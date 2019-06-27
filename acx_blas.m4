@@ -29,7 +29,7 @@ dnl the default action will define HAVE_BLAS.
 dnl
 dnl This macro requires autoconf 2.50 or later.
 dnl
-dnl @version $Id: acx_blas.m4,v 1.1 2003-11-17 04:30:55 stever Exp $
+dnl @version $Id: acx_blas.m4,v 1.1 2003/11/17 04:30:55 stever Exp $
 dnl @author Steven G. Johnson <stevenj@alum.mit.edu>
 dnl
 AC_DEFUN([ACX_BLAS], [

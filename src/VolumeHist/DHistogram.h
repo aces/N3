@@ -14,7 +14,7 @@
 $RCSfile: DHistogram.h,v $
 $Revision: 1.1 $
 $Author: bert $
-$Date: 2003-04-16 14:31:39 $
+$Date: 2003/04/16 14:31:39 $
 $State: Exp $
 --------------------------------------------------------------------------*/
 /* ------------------------------ MNI Header ----------------------------------
@@ -29,7 +29,7 @@ $State: Exp $
 #@CREATED    : May 30, 1996      J.G.Sled  (based on Histogram class created
 #            :   by Alex Zijdenbos)
 #@MODIFIED   :
-#  $Id: DHistogram.h,v 1.1 2003-04-16 14:31:39 bert Exp $
+#  $Id: DHistogram.h,v 1.1 2003/04/16 14:31:39 bert Exp $
 -----------------------------------------------------------------------------*/
 #ifndef DHISTOGRAM_H
 #define DHISTOGRAM_H

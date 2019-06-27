@@ -27,7 +27,7 @@ dnl library is found, and ACTION-IF-NOT-FOUND is a list of commands
 dnl to run it if it is not found.  If ACTION-IF-FOUND is not specified,
 dnl the default action will define HAVE_LAPACK.
 dnl
-dnl @version $Id: acx_lapack.m4,v 1.1 2003-11-17 04:30:55 stever Exp $
+dnl @version $Id: acx_lapack.m4,v 1.1 2003/11/17 04:30:55 stever Exp $
 dnl @author Steven G. Johnson <stevenj@alum.mit.edu>
 
 AC_DEFUN([ACX_LAPACK], [
