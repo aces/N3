@@ -22,7 +22,7 @@
 #@CALLS      : 
 #@CREATED    : January 1996, Greg Ward
 #@MODIFIED   : Sept 1997, John Sled.  Configuration for use with N3 release.
-#@VERSION    : $Id: resample_labels.in,v 1.2 2006-05-05 02:13:44 claude Exp $
+#@VERSION    : $Id: resample_labels.in,v 1.3 2017/07/05 18:32:00 claude Exp $
 #-----------------------------------------------------------------------------
 
 use MNI::Startup;
@@ -439,8 +439,8 @@ sub MakeMRIMask
       $tmpfile = "${TmpDir}${base}_mask.mnc";
    }
    
-   Spawn (['mincmath', '-segment', $mri, $tmpfile, '-const2', @$thresholds,
-           '-byte']) unless -e $tmpfile && !$clobber;
+   Spawn (['mincmath', '-quiet', '-segment', $mri, $tmpfile, '-const2', 
+           @$thresholds, '-byte']) unless -e $tmpfile && !$clobber;
    &Resample ($tmpfile, $outfile, "-trilinear", "-byte", "", $resample)
       if $resample;
    $outfile;
@@ -543,7 +543,7 @@ sub Resample
    my ($in, $out, $interp, $type, $orient, $params, $transform, $invert) = @_;
 
    return if -e $out && !$clobber;
-   Spawn ("mincresample $in $out $interp $type $orient $params " .
+   Spawn ("mincresample -quiet $in $out $interp $type $orient $params " .
 	   ($transform ? "-transformation $transform " : "") .
            ($invert ? " -invert_transformation" : ""));
 }
@@ -569,7 +569,7 @@ sub ApplyMask
    my ($in, $out, $mask) = @_;
 
    return if -e $out && !$clobber;
-   &Spawn (['mincmath', '-mult', $mask, $in, $out]);
+   &Spawn (['mincmath', '-quiet', '-mult', $mask, $in, $out]);
 }
 
 

@@ -13,9 +13,9 @@
 #             express or implied warranty.
 #---------------------------------------------------------------------------- 
 #$RCSfile: sharpen_volume.in,v $
-#$Revision: 1.2 $
+#$Revision: 1.3 $
 #$Author: claude $
-#$Date: 2006-05-05 02:13:44 $
+#$Date: 2017/07/05 18:32:00 $
 #$State: Exp $
 #---------------------------------------------------------------------------
 # ------------------------------ MNI Header ----------------------------------
@@ -54,7 +54,7 @@ close(FILE);
 &Spawn(['sharpen_hist', '-clobber', @blur_option, '-fwhm', $filter_fwhm,
        '-noise', $noise_level, '-quiet', '-range', $min_bin, $max_bin,
         "$base_name.hist", "$base_name.sharp"]);
-&Spawn(['minclookup', '-continuous', '-range', $min_bin, $max_bin, '-clobber',
+&Spawn(['minclookup', '-quiet', '-continuous', '-range', $min_bin, $max_bin, '-clobber',
        '-lookup_table', "$base_name.sharp", $source_volume, $output_volume]);
 
 (defined $save_histogram) && &Spawn("cp $base_name.hist $save_histogram");
@@ -150,7 +150,7 @@ HELP
       (die("Clobber option not given.  Cannot overwrite file:"
               ." $output_volume\n"));
 
-   ($output_volume =~ ?^([\S]+).mnc?) && ($base_name = $1) ||
+   ($output_volume =~ /^([\S]+).mnc/) && ($base_name = $1) ||
       die "sharpen_volume failed: output volume does not appear to be"
       ." a minc volume.\n";
 

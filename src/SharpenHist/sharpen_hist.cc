@@ -9,7 +9,10 @@
 @CALLS      : 
 @CREATED    : February 27, 1996   J.G.Sled
 @MODIFIED   : $Log: sharpen_hist.cc,v $
-@MODIFIED   : Revision 1.4  2005-03-10 22:09:47  bert
+@MODIFIED   : Revision 1.5  2017/10/03 21:44:46  claude
+@MODIFIED   : fixed finite() Sharpen_hist.cc to compile with recent gcc compiler
+@MODIFIED   :
+@MODIFIED   : Revision 1.4  2005/03/10 22:09:47  bert
 @MODIFIED   : Fix sharpen_hist.cc and finite() once more
 @MODIFIED   :
 @MODIFIED   : Revision 1.3  2005/03/08 15:55:11  bert
@@ -76,14 +79,14 @@ CompMat weiner(CompMat &blur, double noise);
 void  non_negative(DblMat *X);
 
 #if HAVE_FINITE
-#ifndef finite
-extern "C" int finite(double);
-#endif /* finite() not defined (as macro) */
+// #ifndef finite
+// extern "C" int finite(double);
+// #endif /* finite() not defined (as macro) */
 #define N3FINITE(x) finite(x)
 #elif HAVE_ISFINITE
-#ifndef isfinite
-extern "C" int isfinite(double);
-#endif /* isfinite() not defined (as macro) */
+// #ifndef isfinite
+// extern "C" int isfinite(double);
+// #endif /* isfinite() not defined (as macro) */
 #define N3FINITE(x) isfinite(x)
 #else
 #error "Neither finite() nor isfinite() is defined on your system"

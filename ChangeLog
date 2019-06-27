@@ -1,3 +1,13 @@
+2017-10-03  Claude Lepage  <claude@bic.mni.mcgill.ca>
+	* sharpen_hist.cc - fix finite() to compile with recent gcc compiler
+
+2017-07-05  Claude Lepage  <claude@bic.mni.mcgill.ca>
+	* sharpen_volume, resample_labels: make it -quiet
+	* nu_estimate_np_and_em: fixed PERL's syntax for "undef @array" to
+  	compile on Ubuntu-16.0
+	* nu_estimate_np_and_em: normalize input image so that outcome is
+  	invariant to image scaling
+
 2014-10-29  Claude Lepage  <claude@bic.mni.mcgill.ca>
 	* Set verbose=0 for calls to Spawn that return parsed values
 

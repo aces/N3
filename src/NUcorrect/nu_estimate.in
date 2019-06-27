@@ -13,9 +13,9 @@
 #             express or implied warranty.
 #---------------------------------------------------------------------------- 
 #$RCSfile: nu_estimate.in,v $
-#$Revision: 1.4 $
+#$Revision: 1.5 $
 #$Author: claude $
-#$Date: 2010-12-09 19:35:01 $
+#$Date: 2018/03/06 21:43:35 $
 #$State: Exp $
 #---------------------------------------------------------------------------
 # ------------------------------ MNI Header ----------------------------------
@@ -31,7 +31,7 @@
 #@CALLS      : 
 #@CREATED    : August 7, 1996      J.G.Sled  
 #@MODIFIED   : 
-#  $Id: nu_estimate.in,v 1.4 2010-12-09 19:35:01 claude Exp $
+#  $Id: nu_estimate.in,v 1.5 2018/03/06 21:43:35 claude Exp $
 #-----------------------------------------------------------------------------
 
 use MNI::Startup qw(nocputimes);
@@ -41,10 +41,10 @@ use MNI::PathUtilities qw(replace_ext replace_dir);
 use MNI::MincUtilities qw(:history);
 use Getopt::Tabular;
 
+my (@Outputs, @Inputs);
+
 # Start main program ------------------------------------------------
 &Initialize;
-
-my (@Outputs, @Inputs);
 
 # run nu_estimate
 $nu_estimate = ($estimation_type eq 'wm') ? 
@@ -59,9 +59,16 @@ else { #run nu_correct
 
    Spawn("$nu_estimate $estimation_options @Inputs @Imps");
    for($i = 0; $i < $#Inputs+1; $i++) {
+      my @field_opts = ();
+      if( defined $user_options{'save_field'} ) {
+        push @field_opts, '-field';
+        my $field_filename = $Outputs[$i];
+        $field_filename =~ s/\.mnc$/\_field.mnc/;
+        push @field_opts, $field_filename;
+      }
       Spawn(['nu_evaluate', ($Verbose) ? '-verbose' : '-quiet',
              ($user_options{'mask'}) ? ('-mask', $user_options{'mask'}) : (),
-             $Inputs[$i], '-mapping', $Imps[$i], $Outputs[$i]]);
+             $Inputs[$i], '-mapping', $Imps[$i], @field_opts, $Outputs[$i]]);
       &construct_history($Inputs[$i], $Outputs[$i], "$0 @ARGV");
    }
 }
@@ -172,7 +179,7 @@ sub SetupArgTables
         "method specific options (quoted if more than one)",<'options ...'>]); 
 
    @correct_args =  (["-mapping_dir", "string", 1, \$mapping_dir, 
-                      "specifiy directory to put imp files in","<directory>"]);
+                      "specify directory to put imp files in","<directory>"]);
    
    @np_em_args = ((($N3_only_flag) ? 
                    (["N3 specific options", "section"]) : 
@@ -190,7 +197,10 @@ sub SetupArgTables
                    ." is less. (suggest 2 or 3)", "<factor>"],
                   ["-normalize_field", "const", 1, 
                    \$user_options{'normalize_field'}, 
-                   "normalize final correction field to have mean 1.0"]);
+                   "normalize final correction field to have mean 1.0"],
+                  ["-save_field", "const", 1, 
+                   \$user_options{'save_field'}, 
+                   "save correction field in '{out}_field.mnc'"]);
 
    @np_args = ((($N3_only_flag) ? () :
                 (["N3 specific options","section"])),
@@ -419,6 +429,8 @@ sub Initialize
    undef $user_options{'mask'};
    undef $user_options{'stop'};
    undef $user_options{'shrink'};
+   undef $user_options{'save_field'};
+   undef $user_options{'normalize_field'};
    $user_options{'distance'} = 200;
    $user_options{'lambda'} = "1.0e-7";
    $user_options{'sharpen'} = 0.15;

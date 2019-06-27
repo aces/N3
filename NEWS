@@ -1,3 +1,15 @@
+New in Release 1.12.3
+---------------------
+* sharpen_hist.cc - fix finite() to compile with recent gcc compiler
+
+New in Release 1.12.2
+---------------------
+* sharpen_volume, resample_labels: make it -quiet
+* nu_estimate_np_and_em: fixed PERL's syntax for "undef @array" to 
+  compile on Ubuntu-16.0
+* nu_estimate_np_and_em: normalize input image so that outcome is
+  invariant to image scaling
+
 New in Release 1.12.1
 ---------------------
 * Set verbose=0 for calls to Spawn that return parsed values
